@@ -61,12 +61,11 @@ try:
     server.ehlo()
     server.starttls()
     server.login(email,passwd)
-    for i in range(1, total, 1):
+    for i in range(1, total+1):
         subject = os.urandom(9)
         msg = 'From: ' + user + '\nSubject: ' + '\n' + body
         server.sendmail(email,to,msg)
         print ("\rE-mails sent: %i" % i)
-        time.sleep(1)
         sys.stdout.flush()
     server.quit()
     print('\n Done !!!')
